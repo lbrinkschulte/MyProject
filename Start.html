@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!-- This is a comment -->
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="navbar.css">
+		<title>Shop</title>
+		<!-- JS zu Überwachung der Fenstergröße -->
+		<script type="text/javascript">
+			function Fensterweite () {
+				if (window.innerWidth) {
+					return window.innerWidth;
+				} else if (document.body && document.body.offsetWidth) {
+					return document.body.offsetWidth;
+				} else {
+					return 0;
+				}
+			}
+
+			function Fensterhoehe () {
+				if (window.innerHeight) {
+					return window.innerHeight;
+				} else if (document.body && document.body.offsetHeight) {
+					return document.body.offsetHeight;
+				} else {
+					return 0;
+				}
+			}
+
+			function neuAufbau () {
+				if (WindowWidth != Fensterweite() || WindowHeight != Fensterhoehe())
+					location.href = location.href;
+					/*document.getElementById("content").innerHTML = Fensterweite() + "<br>" + Fensterhoehe();*/
+				/*if (Fensterweite() > 720){
+					document.getElementById("demo").style.width = (Fensterweite()*0.1)+"px";
+				} else {
+					document.getElementById("demo").style.width = (0)+"px";
+				}*/
+			}
+			
+			function changeNavLeft (option,ChClass){
+				if(option==1){
+					document.getElementById("navLeft"+ChClass+"Tab").className = "navLeft"+ChClass+"Open";
+					document.getElementById("navLeft"+ChClass+"Tab").style.display = "block";
+					document.getElementById("navLeft"+ChClass).style.backgroundColor = "#7A991A";
+				} else if(option==2){
+					document.getElementById("navLeft"+ChClass+"Tab").className = "navLeftTabClosed";
+					document.getElementById("navLeft"+ChClass+"Tab").style.display = "none";
+					document.getElementById("navLeft"+ChClass).style.backgroundColor = "#98bf21";
+				}
+			}
+			function contentChangeLeftNav(i){
+				if (i==1){
+					document.getElementById("content").style.width = (Fensterweite()-318)+"px";
+				} else if (i==2){
+					document.getElementById("content").style.width = (Fensterweite()-168)+"px";
+				}
+			}
+		
+			/* Überwachung von Netscape initialisieren */
+			if (!window.WindowWidth && window.innerWidth) {
+				window.onresize = neuAufbau;
+				WindowWidth = Fensterweite();
+				WindowHeight = Fensterhoehe();
+			}
+		</script>
+	</head>
+	<body>
+	<!-- JS zu Überwachung der Fenstergröße -->
+	<script type="text/javascript">
+	/* Überwachung von Internet Explorer initialisieren */
+		if (!window.WindowWidth && document.body && document.body.offsetWidth) {
+			window.onresize = neuAufbau;
+			WindowWidth = Fensterweite();
+			WindowHeight = Fensterhoehe();
+		}
+		
+	</script>
+		<div id="container" class="container">
+			<div id="header" style="background-color:#FFA500;min-width:800px;">
+				<h1 style="margin-bottom:0;">Main Title of Web Page</h1>
+			</div>
+			<div id="navtop" style="background-color:#EF7280;min-width:800px;">
+				<ul class="navtop" style="min-width:800;width:800;">
+					<li class="navtop"><div id="filler" style="width:100px"><br></div></li>
+					<li class="navtop"><a class="navtop" href="#home">Home</a></li>
+					<li class="navtop"><a class="navtop" href="#news">News</a></li>
+					<li class="navtop"><a class="navtop" href="#contact">Contact</a></li>
+					<li class="navtop"><a class="navtop" href="#about">About</a></li>
+				</ul>
+			</div>
+		<div id="mainPage" style="height:auto;">
+			<div id="navLeftDiv" style="background-color:#98bf21;width:150px;float:left;">
+				<ul class="navLeft">
+					<li class="navLeft" onmouseover="changeNavLeft(1,'Home')" onmouseout="changeNavLeft(2,'Home')"><a class="navLeft" id="navLeftHome" href="#home">Home</a></li>
+					<li class="navLeft" onmouseover="changeNavLeft(1,'News')" onmouseout="changeNavLeft(2,'News')"><a class="navLeft" id="navLeftNews" href="#news">News</a></li>
+					<li class="navLeft" onmouseover="changeNavLeft(1,'Contact')" onmouseout="changeNavLeft(2,'Contact')"><a class="navLeft" id="navLeftContact" href="#contact">Contact</a></li>
+					<li class="navLeft"><a class="navLeft" href="#about">About</a></li>
+				</ul>
+			</div>
+			<!--<div class="navlefthome" id="navlefthome" onmouseover="test(1)" onmouseout="test(0)">
+			</div>-->
+			<div id="navLeftHomeTab" onmouseover="changeNavLeft(1,'Home')" onmouseout="changeNavLeft(2,'Home')" style="display:none;">
+				<ul class="navLeftTab">
+					<li class=""><a class="navLeftTab" href="#smth1">Smth1</a></li>
+					<li class=""><a class="navLeftTab" href="#smth2">Smth2</a></li>
+					<li class=""><a class="navLeftTab" href="#smth3">Smth3</a></li>
+					<li class=""><a class="navLeftTab" href="#smth4">Smth4</a></li>
+				</ul>
+			</div>
+			<div id="navLeftNewsTab" onmouseover="changeNavLeft(1,'News')" onmouseout="changeNavLeft(2,'News')" style="display:none;">
+				<ul class="navLeftTab">
+					<li class=""><a class="navLeftTab" href="#smth1">Smth5</a></li>
+					<li class=""><a class="navLeftTab" href="#smth2">Smth6</a></li>
+					<li class=""><a class="navLeftTab" href="#smth3">Smth7</a></li>
+					<li class=""><a class="navLeftTab" href="#smth4">Smth8</a></li>
+				</ul>
+			</div>
+			<div id="navLeftContactTab" onmouseover="changeNavLeft(1,'Contact')" onmouseout="changeNavLeft(2,'Contact')" style="display:none;">
+				<ul class="navLeftTab">
+					<li class=""><a class="navLeftTab" href="#smth1">Smth9</a></li>
+					<li class=""><a class="navLeftTab" href="#smth2">Smth10</a></li>
+					<li class=""><a class="navLeftTab" href="#smth3">Smth11</a></li>
+					<li class=""><a class="navLeftTab" href="#smth4">Smth12</a></li>
+				</ul>
+			</div>
+			<div class="content" id="content">
+				<h2 style="text-align:center;">Some titel for content</h2>
+				Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content!
+				Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content!
+				Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content!
+				Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content!
+				Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content!
+				Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content!
+				Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content! Some content!
+			</div>
+			<div id="rightSideContent" style="width:150px;float:right;background-color:#7A991A;">
+			<br>
+			</div>
+		</div>	
+			<div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+			Copyright</div>
+		</div>
+		</div>
+			<!-- Startwerte anhand von JS Variablen -->
+			<script type="text/javascript">
+			/*document.getElementById("content").innerHTML = Fensterweite()+ "<br>" + Fensterhoehe();*/
+			
+			document.getElementById("rightSideContent").innerHTML = document.getElementById("content").height + "<br>" +
+			document.getElementById("content").clientHeight + "<br>" + document.getElementById("navLeftDiv").style.height + "<br>" +
+			document.getElementById("content").offsetHeight + "<br>" +
+			document.getElementById("content").scrollHeight + "<br>" +Fensterweite()+ "<br>" + Fensterhoehe();
+			if(Fensterweite() > 1000){
+				var winWidth = Fensterweite();
+				document.getElementById("content").style.width = (winWidth-502)+ "px";
+				document.getElementById("filler").style.width = (winWidth*0.1)+"px";
+				document.getElementById("header").style.width = (winWidth-200)+ "px";
+			}
+			document.getElementById("footer").style.height = document.getElementById("header").style.height;
+			</script>
+	</body>
+	
+</html>
